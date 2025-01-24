@@ -1,13 +1,27 @@
 .footer {
-  padding: 60px 580px;
+  padding: 60px;
   display: flex;
   justify-content: center;
+  background-color: #fcf5e5;
 }
 
 .footer__content {
   font-size: 16px;
-  line-height: 16px;
-  padding: 0;
+  line-height: 1;
   font-weight: 400;
   color: rgba(33, 33, 33, 0.7);
+}
+
+@media screen and (max-width: 627px) {
+.footer {
+  width: 100%;
+  line-height: 16px;
+  padding: 60px 0;
+  margin: 0 auto;
+  }
+}
+
+  .footer_content {
+    margin: 0;
+  }
 }

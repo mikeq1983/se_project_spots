@@ -16,9 +16,16 @@
 .profile__name {
   margin: 0 0 12px;
   font-size: 32px;
-  line-height: 32px;
+  line-height: 1;
   font-weight: 500;
   color: rgba(33, 33, 33, 1);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  line-clamp: 3;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 420px;
 }
 
 .profile__description {
@@ -27,6 +34,13 @@
   font-size: 16px;
   line-height: 16px;
   font-weight: 500;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  line-clamp: 3;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 420px;
 }
 
 .profile__main {
@@ -51,10 +65,57 @@
 }
 
 .new__post {
-  border: none;
-  background-color: #fcf5e5;
-  margin: auto 0 0;
-  padding: 0;
   margin-left: auto;
+  margin-top: auto;
+  border: 1px solid #000;
+  background-color: #000;
+  width: 149px;
+  height: 52px;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.post__plus {
+  width: 12px;
+  height: 12px;
+  color: #fff;
+  padding-right: 8px;
+}
+
+@media screen and (max-width: 627px) {
+  .profile {
+    flex-direction: column;
+    max-width: 288px;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .profile__name {
+    font-size: 20px;
+    margin-bottom: 6px;
+    max-width: 288px;
+  }
+
+  .avatar__image {
+    margin: 0 0 12px;
+    height: 80px;
+    width: 80px;
+  }
+
+  .new__post {
+    margin: 0;
+    width: 288px;
+  }
+
+  .profile__edit {
+    align-self: center;
+    margin-bottom: 20px;
+  }
+
+  .profile__description {
+    margin-bottom: 32px;
+    max-width: 288px;
+  }
 }
 
