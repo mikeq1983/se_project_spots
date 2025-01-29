@@ -21,11 +21,8 @@
   font-weight: 500;
   text-overflow: ellipsis;
   overflow: hidden;
-  line-clamp: 3;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  max-width: 420px;
+  white-space: nowrap;
+  max-width: 350px;
 }
 
 .card__like-image {
