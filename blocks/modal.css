@@ -37,6 +37,11 @@
   background-color: transparent;
 }
 
+.modal__close-button:hover {
+  background-image: url(../images/closehover.svg);
+  cursor: pointer;
+}
+
 .modal__title {
   margin: 0 0 32px;
   font-weight: 500;
