@@ -39,7 +39,7 @@
 }
 
 .modal__close-button:hover {
-  background-image: url(../images/closehover.svg);
+  box-shadow: 1px 1px rgba(33, 33, 33, 0.4);
   cursor: pointer;
 }
 

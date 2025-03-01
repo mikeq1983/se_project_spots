@@ -1,4 +1,4 @@
-const initialcards = [
+const initialCards = [
   {name: "Val Thorens",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg"},
   {name: "Restaurant terrace",
@@ -27,7 +27,6 @@ const cardTemplate = document.querySelector("#card-template");
 const cardList = document.querySelector(".cards__list")
 
 function getCardElement(data) {
-  console.log(data);
   const cardElement = cardTemplate.content.querySelector(".card").cloneNode(true);
 
   const cardNameElement = cardElement.querySelector(".card__name");
@@ -35,7 +34,7 @@ function getCardElement(data) {
 
    cardNameElement.textContent = data.name;
    cardImageElement.src = data.link;
-   cardImageElement.alt = data.altText;
+   cardImageElement.alt = data.name;
 
    return cardElement;
 }
@@ -63,7 +62,7 @@ editCloseButton.addEventListener("click", closeModal);
 
 editFormElement.addEventListener('submit', handleEditFormSubmit);
 
-for(let i = 0; i < initialcards.length; i++) {
-  const cardElement = getCardElement(initialcards[i]);
+for(let i = 0; i < initialCards.length; i++) {
+  const cardElement = getCardElement(initialCards[i]);
   cardList.prepend(cardElement);
 }
