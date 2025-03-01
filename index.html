@@ -39,12 +39,13 @@
       </section>
       <section class="cards page__section">
         <ul class="cards__list">
+          <template id="card-template">
           <li class="card">
-            <img src="./images/1.jpg"
-            alt="Thorens"
+            <img src=""
+            alt=""
             class="card__image">
             <div class="card__content">
-              <h2 class="card__name">Val Thorens</h2>
+              <h2 class="card__name"></h2>
               <button type="button" class="card__like-button">
                 <img src="./images/heart.svg"
                 alt="like button"
@@ -52,71 +53,7 @@
               </button>
             </div>
           </li>
-          <li class="card">
-            <img src="./images/2.jpg"
-            alt="Restaurant"
-            class="card__image">
-            <div class="card__content">
-              <h2 class="card__name">Restaurant Terrace</h2>
-              <button type="button" class="card__like-button">
-                <img src="./images/heart.svg"
-                alt="like button"
-                class="card__like-image">
-              </button>
-            </div>
-          </li>
-          <li class="card">
-            <img src="./images/3.jpg"
-            alt="Cafe"
-            class="card__image">
-            <div class="card__content">
-              <h2 class="card__name">An outdoor cafe</h2>
-              <button type="button" class="card__like-button">
-                <img src="./images/heart.svg"
-                alt="like button"
-                class="card__like-image">
-              </button>
-            </div>
-          </li>
-          <li class="card">
-            <img src="./images/4.jpg"
-            alt="Bridge"
-            class="card__image">
-            <div class="card__content">
-              <h2 class="card__name">A very long bridge, over the forest...</h2>
-              <button type="button" class="card__like-button">
-                <img src="./images/heart.svg"
-                alt="like button"
-                class="card__like-image">
-              </button>
-            </div>
-          </li>
-          <li class="card">
-            <img src="./images/5.jpg"
-            alt="Tunnel"
-            class="card__image">
-            <div class="card__content">
-              <h2 class="card__name">Tunnel with morning light</h2>
-              <button type="button" class="card__like-button">
-                <img src="./images/heart.svg"
-                alt="like button"
-                class="card__like-image">
-              </button>
-            </div>
-          </li>
-          <li class="card">
-            <img src="./images/6.jpg"
-            alt="Mountain house"
-            class="card__image">
-            <div class="card__content">
-              <h2 class="card__name">Mountain house</h2>
-              <button type="button" class="card__like-button">
-                <img src="./images/heart.svg"
-                alt="like button"
-                class="card__like-image">
-              </button>
-            </div>
-          </li>
+        </template>
         </ul>
       </section>
     </main>
@@ -125,16 +62,16 @@
     </footer>
     <div class="modal" id="edit-modal">
       <div class="modal__container">
-        <button type="submit" id="close_button" class="modal__close-button"></button>
+        <button type="submit" class="modal__close-button"></button>
         <h2 class="modal__title">Edit profile</h2>
         <form name="edit-profile" class="modal__form">
-          <label for="name" class="modal__label">
+          <label for="name-input" class="modal__label">
             Name
-            <input type="text" id="name" class="modal__input" placeholder="Type your name">
+            <input type="text" id="name-input" class="modal__input" placeholder="Type your name">
           </label>
-          <label for="description" class="modal__label">
+          <label for="description-input" class="modal__label">
             Description
-            <input type="text" id="description" class="modal__input" placeholder="Describe yourself">
+            <input type="text" id="description-input" class="modal__input" placeholder="Describe yourself">
           </label>
           <button type="submit" class="modal__save-button">Save</button>
         </form>

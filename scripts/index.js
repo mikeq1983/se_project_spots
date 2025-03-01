@@ -1,4 +1,4 @@
-const intialcards = [
+const initialcards = [
   {name: "Val Thorens",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg"},
   {name: "Restaurant terrace",
@@ -14,13 +14,35 @@ const intialcards = [
 ];
 
 const profileEditButton = document.querySelector(".profile__edit-button");
+const profileNameElement = document.querySelector(".profile__name");
+const profileJobElement = document.querySelector(".profile__description");
 
 const editModal = document.querySelector("#edit-modal");
-
+const editFormElement = editModal.querySelector(".modal__form");
+const nameInput = editModal.querySelector("#name-input");
+const jobInput = editModal.querySelector("#description-input");
 const editCloseButton = editModal.querySelector(".modal__close-button");
 
+const cardTemplate = document.querySelector("#card-template");
+const cardList = document.querySelector(".cards__list")
+
+function getCardElement(data) {
+  console.log(data);
+  const cardElement = cardTemplate.content.querySelector(".card").cloneNode(true);
+
+  const cardNameElement = cardElement.querySelector(".card__name");
+  const cardImageElement = cardElement.querySelector(".card__image");
+
+   cardNameElement.textContent = data.name;
+   cardImageElement.src = data.link;
+   cardImageElement.alt = data.altText;
+
+   return cardElement;
+}
 
 function openModal() {
+  nameInput.value = profileNameElement.textContent;
+  jobInput.value = profileJobElement.textContent;
   editModal.classList.add("modal_opened");
 }
 
@@ -28,6 +50,20 @@ function closeModal() {
   editModal.classList.remove("modal_opened");
 }
 
+function handleEditFormSubmit(evt) {
+  evt.preventDefault();
+  profileNameElement.textContent = nameInput.value;
+  profileJobElement.textContent = jobInput.value;
+  closeModal();
+}
+
 profileEditButton.addEventListener("click", openModal);
 
 editCloseButton.addEventListener("click", closeModal);
+
+editFormElement.addEventListener('submit', handleEditFormSubmit);
+
+for(let i = 0; i < initialcards.length; i++) {
+  const cardElement = getCardElement(initialcards[i]);
+  cardList.prepend(cardElement);
+}
