@@ -92,6 +92,7 @@ function handleCardSubmit(evt) {
   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value};
   const cardElement = getCardElement(inputValues);
   cardList.prepend(cardElement);
+  cardFormElement.reset();
   closeModal(cardModal);
 }
 
