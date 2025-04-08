@@ -29,6 +29,7 @@ const editCloseButton = editModal.querySelector(".modal__close-button");
 
 const cardModal = document.querySelector("#card-modal");
 const cardFormElement = cardModal.querySelector(".modal__form");
+const cardSubmitButton= cardModal.querySelector(".modal__save-button");
 const cardNameInput = cardModal.querySelector("#card-name-input");
 const cardLinkInput = cardModal.querySelector("#card-link-input");
 const cardCloseButton = cardModal.querySelector(".modal__close-button");
@@ -74,6 +75,11 @@ function getCardElement(data) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  if (modal === cardModal) {
+    const inputList = Array.from(modal.querySelectorAll(settings.inputSelector));
+    const buttonElement = modal.querySelector(settings.submitButtonSelector);
+    toggleButtonState(inputList, buttonElement, settings);
+  }
 }
 
 function closeModal(modal) {
@@ -93,6 +99,7 @@ function handleCardSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardList.prepend(cardElement);
   cardFormElement.reset();
+  disableButton(cardSubmitButton);
   closeModal(cardModal);
 }
 
@@ -106,8 +113,20 @@ editCloseButton.addEventListener("click", () => {
   closeModal(editModal)
 });
 
+editModal.addEventListener('click', (event) => {
+  if (event.target === event.currentTarget) {
+  closeModal(editModal);
+  }
+});
+
 profileNewPostButton.addEventListener("click", () => {
-  openModal (cardModal)
+  openModal (cardModal);
+});
+
+cardModal.addEventListener('click', (event) => {
+  if (event.target === event.currentTarget) {
+  closeModal(cardModal);
+  }
 });
 
 cardCloseButton.addEventListener("click", () => {
@@ -117,6 +136,20 @@ cardCloseButton.addEventListener("click", () => {
 previewCloseButton.addEventListener("click", () => {
   closeModal(previewModal);
 });
+
+previewModal.addEventListener('click', (event) => {
+  if (event.target === event.currentTarget) {
+  closeModal(previewModal);
+  }
+});
+
+document.addEventListener("keydown", function (evt) {
+  if (evt.key === "Escape") {
+    const openModal = document.querySelector(".modal_opened");
+    if (openModal)
+      openModal.classList.remove("modal_opened");
+    }
+  });
 
 editFormElement.addEventListener('submit', handleEditFormSubmit);
 cardFormElement.addEventListener('submit', handleCardSubmit);

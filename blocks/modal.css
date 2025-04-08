@@ -87,6 +87,7 @@
   font-size: 16px;
   line-height: 17.6px;
   color: rgba(33, 33, 33, 0.7);
+  margin-bottom: 32px;
 }
 
 .modal__caption {
@@ -105,7 +106,7 @@ max-width: 627px;
 }
 
 .modal__input {
-  margin-bottom: 32px;
+  margin-bottom: 0;
   padding: 16px 12px;
   border: 1px solid rgba(33, 33, 33, 0.4);
   border-radius: 8px;
@@ -115,6 +116,25 @@ max-width: 627px;
   border: 1px solid rgba(33, 33, 33, 1);
 }
 
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
+}
+
+.modal__input-error {
+  display: none;
+  color: rgba(255, 0, 0, 0.7);
+  font-family: poppins, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 110.00000000000001%;
+  max-width: 630px;
+  max-height: 18px;
+}
+
+.modal__input-error_active {
+  display: block;
+}
+
 .modal__save-button {
   width: 156px;
   padding: 18px 0;
@@ -122,6 +142,10 @@ max-width: 627px;
   color: #fff;
   background: #000;
   cursor: pointer;
+}
+
+.modal__save-button-disabled {
+  background-color: #909090;
 }
 
 @media screen and (max-width: 627px) {
