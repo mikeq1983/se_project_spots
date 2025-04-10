@@ -144,7 +144,7 @@ max-width: 627px;
   cursor: pointer;
 }
 
-.modal__save-button-disabled {
+.modal__save-button_disabled {
   background-color: #909090;
 }
 

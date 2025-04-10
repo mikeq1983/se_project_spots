@@ -2,7 +2,7 @@ const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__save-button",
-  inactiveButtonClass: "modal__save-button-disabled",
+  inactiveButtonClass: "modal__save-button_disabled",
   inputErrorClass: "modal__input-error_active",
   errorClass: "modal__input_type_error"
 }
@@ -37,7 +37,7 @@ const hasInvalidInput = (inputList) => {
 
 const toggleButtonState = (inputList, buttonElement, config) => {
   if (hasInvalidInput(inputList, config)) {
-   disableButton(buttonElement);
+   disableButton(buttonElement, config);
    buttonElement.classList.add(config.inactiveButtonClass);
   } else {
    buttonElement.disabled = false;
@@ -45,16 +45,26 @@ const toggleButtonState = (inputList, buttonElement, config) => {
   }
  };
 
- const disableButton = (buttonElement) => {
+ const disableButton = (buttonElement, config) => {
   buttonElement.disabled = true;
- };
+  buttonElement.classList.add(config.inactiveButtonClass);
+};
+
+const resetValidation = (formElement, inputList, config) => {
+  inputList.forEach((input) => {
+    hideInputError(formElement, input, config);
+  });
+}
 
 const setEventListener = (formElement, config) => {
   const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
   const buttonElement = formElement.querySelector(config.submitButtonSelector);
 
 
-toggleButtonState(inputList, buttonElement, config);
+  toggleButtonState(inputList, buttonElement, config);
+  formElement.addEventListener("reset", () => {
+    disableButton(buttonElement, config);
+  });
 
 inputList.forEach((inputElement) => {
 inputElement.addEventListener("input", ()=> {
