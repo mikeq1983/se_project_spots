@@ -6,7 +6,6 @@ export function setButtonText(
 ) {
 if (isLoading) {
   submitBtn.textContent = loadingText;
-  console.log(`setting text to $(loading text)`);
 } else {
   submitBtn.textContent = defaultText;
 }

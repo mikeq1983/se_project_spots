@@ -222,9 +222,9 @@ function handleAvatarSubmit(evt) {
       closeModal(avatarModal);
     })
     .catch(console.error)
-    // .finally(() => {
-    //   submitBtn.textContent = "Save";
-    // });
+    .finally(() => {
+      submitBtn.textContent = "Save";
+    });
 }
 
 
