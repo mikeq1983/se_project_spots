@@ -85,7 +85,7 @@ api
   .then(([cards, users]) => {
     cards.forEach(function (item) {
       const cardElement = getCardElement(item);
-      cardList.prepend(cardElement);
+      cardList.append(cardElement);
     });
     avatarImg.src = users.avatar;
     profileNameElement.textContent = users.name;
@@ -164,7 +164,7 @@ function handleCardSubmit(evt) {
       .addNewCard({ name: cardNameInput.value, link: cardLinkInput.value })
       .then((data) => {
         const cardElement = getCardElement(data);
-        cardList.append(cardElement);
+        cardList.prepend(cardElement);
         closeModal(cardModal);
       });
   }
@@ -184,7 +184,7 @@ function handleDeleteSubmit(evt) {
       closeModal(deleteModal);
     });
   }
-  handleSubmit(makeRequest, evt, "Deleting...");
+  handleSubmit(makeRequest, evt, "Deleting...", false);
 }
 
 function handleLike(evt, id) {

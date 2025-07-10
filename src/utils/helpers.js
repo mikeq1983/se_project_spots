@@ -11,14 +11,19 @@ export function renderLoading(
   }
 }
 
-export function handleSubmit(request, evt, loadingText = "Saving...") {
+export function handleSubmit(
+  request,
+  evt,
+  loadingText = "Saving...",
+  resetForm = true
+) {
   evt.preventDefault();
   const submitButton = evt.submitter;
   const defaultText = submitButton.textContent;
   renderLoading(submitButton, true, defaultText, loadingText);
   request()
     .then(() => {
-      evt.target.reset();
+      if (resetForm) evt.target.reset();
     })
     .catch(console.error)
     .finally(() => {
